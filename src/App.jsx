@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <header className="main-header">
         <div className="container header-content">
-          <Link to="/" className="logo">Укрзалізниця — залізниця майбутнього</Link>
+          <Link to="/" className="logo"><img src="/logo.png" width="10%" alt="Українські Залізничні Лінії" /></Link>
         </div>
       </header>
 
