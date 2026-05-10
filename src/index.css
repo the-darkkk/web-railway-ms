@@ -1,142 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 :root {
-  --primary: #003572;
-  --accent: #ffc107;
-  --bg: #f0f2f5;
-  --text: #1a1a1a;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --radius: 12px;
+  --bg-color: #050505; /* Дуже глибокий чорний */
+  --board-bg: #111111;
+  --text-main: #ffcc00; /* Класичний жовтий колір табло */
+  --text-muted: #886a00;
+  --accent: #ff9900;
+  --border-color: #222;
 }
 
 body {
   margin: 0;
-  font-family: 'Inter', system-ui, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  /* Глобально застосовуємо ретро-шрифт */
+  font-family: 'VT323', monospace; 
+  font-size: 22px;
+  letter-spacing: 1.5px;
 }
 
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
 }
 
+/* Шапка сайту */
 .main-header {
-  background: var(--primary);
-  padding: 1rem 0;
-  box-shadow: var(--shadow);
+  border-bottom: 2px solid var(--text-muted);
+  padding: 10px 0;
+  margin-bottom: 30px;
 }
 
 .logo {
-  color: white;
+  color: var(--accent);
   text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
 }
 
+/* Секція пошуку як термінал */
 .hero-section {
   text-align: center;
-  padding: 40px 0;
+  margin-bottom: 40px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
 .search-input {
   width: 100%;
-  max-width: 500px;
-  padding: 14px 20px;
-  border-radius: 30px;
-  border: 2px solid transparent;
-  box-shadow: var(--shadow);
-  font-size: 1rem;
-  transition: all 0.3s ease;
+  max-width: 600px;
+  background: #000;
+  border: 1px solid var(--text-muted);
+  color: var(--text-main);
+  padding: 15px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  outline: none;
+  transition: all 0.3s;
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: var(--primary);
-  transform: scale(1.02);
+  border-color: var(--text-main);
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
 }
 
-.train-list-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 25px;
-  margin-bottom: 50px;
+.search-input::placeholder {
+  color: var(--text-muted);
 }
 
-.train-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 20px;
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.train-card:hover {
-  transform: translateY(-5px);
-}
-
-.train-card-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  color: #666;
-  font-weight: 500;
-}
-
-.train-id {
-  background: #eef2ff;
-  color: var(--primary);
-  padding: 4px 10px;
-  border-radius: 6px;
-}
-
-.train-route {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.route-point {
-  display: flex;
-  flex-direction: column;
-}
-
-.city {
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-
-.time {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--primary);
-}
-
-.route-arrow {
-  color: #ccc;
-  font-size: 1.2rem;
-}
-
-.book-link {
-  margin-top: auto;
-  background: var(--primary);
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  padding: 12px;
+/* Дизайн ТАБЛО (Замість сітки карток) */
+.board-container {
+  background: var(--board-bg);
+  border: 4px solid #222;
   border-radius: 8px;
-  font-weight: 600;
+  padding: 10px;
+}
+
+.board-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr;
+  padding: 10px 15px;
+  border-bottom: 2px dashed var(--text-muted);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Рядок рейсу */
+.board-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr;
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  align-items: center;
   transition: background 0.2s;
 }
 
+.board-row:hover {
+  background: #1a1a1a;
+}
+
+.board-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.time { font-size: 1.8rem; color: var(--accent); }
+.train-num { font-size: 1.5rem; }
+.route { font-size: 1.5rem; text-transform: uppercase; }
+.duration { color: var(--text-muted); }
+
+/* Кнопка як індикатор на табло */
+.book-link {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--text-main);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
 .book-link:hover {
-  background: #002652;
+  background: var(--text-main);
+  color: #000;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
 }
 
 .empty-state {
   text-align: center;
-  padding: 50px;
-  color: #888;
+  padding: 40px;
+  font-size: 2rem;
+  color: #ff3333; /* Червоний для помилок/порожнечі */
+  text-transform: uppercase;
+}
+
+/* Адаптивність (Mobile) */
+@media (max-width: 768px) {
+  .board-header { display: none; } /* Ховаємо шапку на мобілках */
+  
+  .board-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    border: 1px dashed var(--text-muted);
+    margin-bottom: 15px;
+    padding: 20px;
+  }
+
+  .route { font-size: 1.8rem; text-align: center; }
+  .time, .train-num { display: inline-block; }
 }
