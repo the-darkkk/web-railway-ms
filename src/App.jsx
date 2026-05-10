@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <header className="main-header">
         <div className="container header-content">
-          <Link to="/" className="logo">🚆 УкрЗалізниця</Link>
+          <Link to="/" className="logo">RAILWAY MS</Link>
         </div>
       </header>
 

@@ -1,22 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400;600;800&display=swap');
 
 :root {
-  --bg-color: #050505; /* Дуже глибокий чорний */
-  --board-bg: #111111;
-  --text-main: #ffcc00; /* Класичний жовтий колір табло */
+  --bg-color: #050505;
+  --board-bg: rgba(17, 17, 17, 0.85);
+  --text-main: #ffcc00; 
   --text-muted: #886a00;
   --accent: #ff9900;
-  --border-color: #222;
+  --border-color: #333;
 }
 
 body {
   margin: 0;
-  background-color: var(--bg-color);
   color: var(--text-main);
-  /* Глобально застосовуємо ретро-шрифт */
-  font-family: 'VT323', monospace; 
-  font-size: 22px;
+  font-family: 'Tektur', monospace;
+  font-size: 20px;
   letter-spacing: 1.5px;
+  
+  background-image: url('/background.jpg');
+  background-size: cover;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; 
+  min-height: 100vh;
 }
 
 .container {

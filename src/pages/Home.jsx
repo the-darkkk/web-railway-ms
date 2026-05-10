@@ -17,11 +17,11 @@ export default function Home() {
   return (
     <main className="container">
       <div className="hero-section">
-        <h1>Departures Board</h1>
+        <h1>Розклад рейсів</h1>
         <div className="search-wrapper">
           <input 
             type="text" 
-            placeholder="ENTER DESTINATION OR FLIGHT..." 
+            placeholder="ВВЕДІТЬ НАПРЯМОК АБО НОМЕР РЕЙСУ..." 
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="search-input"

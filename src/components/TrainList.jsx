@@ -16,7 +16,7 @@ export default function TrainList({ trains }) {
       {}
       <div className="board-header">
         <div>Time</div>
-        <div>Flight</div>
+        <div>Train</div>
         <div>Destination</div>
         <div>Duration</div>
         <div>Action</div>
