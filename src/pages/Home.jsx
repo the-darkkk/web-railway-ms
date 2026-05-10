@@ -5,7 +5,14 @@ import TrainList from '../components/TrainList';
 export default function Home() {
   const [query, setQuery] = useState('');
 
-    // to do filters
+  const filteredTrains = trainsData.filter(train => {
+    const s = query.toLowerCase();
+    return (
+      train.route.from.toLowerCase().includes(s) ||
+      train.route.to.toLowerCase().includes(s) ||
+      train.trainNumber.toLowerCase().includes(s)
+    );
+  });
 
   return (
     <main className="container">
