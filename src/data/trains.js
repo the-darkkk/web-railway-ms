@@ -30,5 +30,21 @@ export const trainsData = [
     departureDate: '2026-05-21',
     departureTime: '20:12',
     duration: '09:40',
+  },
+  {
+    id: '5',
+    trainNumber: '420U',
+    route: { from: 'Київ', to: 'Солотвино' },
+    departureDate: '2026-05-22',
+    departureTime: '14:48',
+    duration: '09:10',
+  },
+  {
+    id: '6',
+    trainNumber: '348Щ',
+    route: { from: 'Львів', to: 'Мукачево' },
+    departureDate: '2026-05-13',
+    departureTime: '07:10',
+    duration: '02:45',
   }
 ];
