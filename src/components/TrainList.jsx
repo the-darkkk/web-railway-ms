@@ -5,7 +5,7 @@ export default function TrainList({ trains }) {
     return (
       <div className="board-container">
         <div className="empty-state">
-          NO DEPARTURES FOUND
+          Не знайдено рейсів
         </div>
       </div>
     );
@@ -15,11 +15,11 @@ export default function TrainList({ trains }) {
     <div className="board-container">
       {}
       <div className="board-header">
-        <div>Time</div>
-        <div>Train</div>
-        <div>Destination</div>
-        <div>Duration</div>
-        <div>Action</div>
+        <div>Час</div>
+        <div>Рейс</div>
+        <div>Напрямок</div>
+        <div>Тривалість</div>
+        <div>Дія</div>
       </div>
 
       {/* Рядки табло */}

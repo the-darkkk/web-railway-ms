@@ -22,7 +22,7 @@ export default function TrainCard({ train }) {
 
       <div className="board-col">
         <Link to={`/booking/${train.id}`} className="book-link">
-          SELECT
+          Бронювати
         </Link>
       </div>
     </div>
