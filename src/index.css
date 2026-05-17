@@ -157,30 +157,18 @@ body {
   text-transform: uppercase;
 }
 
-/* Адаптивність (Mobile) */
-@media (max-width: 768px) {
-  .board-header { display: none; } /* Ховаємо шапку на мобілках */
-  
-  .board-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    border: 1px dashed var(--text-muted);
-    margin-bottom: 15px;
-    padding: 20px;
-  }
-
-  .route { font-size: 1.8rem; text-align: center; }
-  .time, .train-num { display: inline-block; }
-}
+/* booking */
 .booking-page { margin-top: 20px; }
 
 .booking-header {
   background: var(--board-bg);
   border: 1px solid var(--text-muted);
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 10px 20px; 
+  margin-bottom: 15px;
   text-align: center;
 }
+.booking-header h2 { margin: 10px 0 5px 0; font-size: 1.4rem; }
+.booking-header p { margin: 0 0 10px 0; }
 
 .booking-content {
   display: grid;
@@ -188,6 +176,7 @@ body {
   gap: 30px;
 }
 
+/* Зона вагонів */
 .wagons-scroll-container {
   max-height: 65vh;
   overflow-y: auto;
@@ -208,16 +197,26 @@ body {
   margin-bottom: 20px;
 }
 
+/* Місця та Grid */
 .seat-map-container { margin-bottom: 40px; }
 
 .seat-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(7, 1fr); 
+  gap: 10px; 
+  row-gap: 15px;
+}
+
+/* Імітація проходу (4-та колонка залишається порожньою) */
+.seat:nth-child(6n+4) {
+  grid-column: 5;
 }
 
 .seat {
-  padding: 15px 0;
+  aspect-ratio: 1 / 1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: inherit;
   font-size: 1.2rem;
   font-weight: bold;
@@ -225,18 +224,19 @@ body {
   border: 2px solid;
   background: transparent;
   transition: 0.2s;
+  padding: 0; 
+  margin: 0;
 }
 
 .seat-free { color: #00ff00; border-color: #00ff00; text-shadow: 0 0 5px #00ff00; }
 .seat-free:hover { background: rgba(0, 255, 0, 0.2); }
-
 .seat-selected { background: #00e5ff; color: #000; border-color: #00e5ff; box-shadow: 0 0 15px #00e5ff; text-shadow: none; }
-
 .seat-booked { color: #ff0000; border-color: #ff0000; opacity: 0.4; cursor: not-allowed; text-shadow: 0 0 5px #ff0000; }
 
+/* Легенда */
 .legend { display: flex; justify-content: center; gap: 20px; }
 .legend-item { display: flex; align-items: center; gap: 10px; font-size: 1rem;}
-.legend-item .seat { padding: 8px; width: 20px; cursor: default; }
+.legend-item .seat { width: 24px; height: 24px; cursor: default; }
 
 .sticky-legend {
   position: sticky;
@@ -249,30 +249,43 @@ body {
   margin-bottom: 30px;
 }
 
+/* Права панель та форма (Десктоп) */
 .right-panel {
   position: sticky;
-  top: 100px;
+  top: 80px;
   align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: calc(100vh - 100px); /* Обмеження по висоті екрана */
 }
 
 .booking-form {
   background: var(--board-bg);
   border: 1px solid var(--text-muted);
-  padding: 20px;
+  padding: 15px; /* Компактніша форма */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px; /* Менша відстань між інпутами */
 }
 
-.booking-form .search-input { margin-bottom: 5px; }
+.booking-form h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+
+.booking-form .search-input { 
+  width: 100%;
+  box-sizing: border-box; 
+  text-transform: none; 
+  padding: 10px;
+  font-size: 1rem;
+}
 
 .submit-btn {
   background: var(--text-main);
   color: #000;
   border: none;
-  padding: 15px;
+  padding: 12px;
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
   transition: 0.2s;
@@ -281,19 +294,45 @@ body {
 .submit-btn:disabled { background: #333; color: #666; cursor: not-allowed; text-shadow: none; }
 .submit-btn:not(:disabled):hover { box-shadow: 0 0 15px var(--text-main); }
 
+/* Блок обраних місць */
 .selected-summary {
   background: var(--board-bg);
   border: 1px solid var(--text-muted);
   padding: 15px;
-  margin-top: 20px;
+  margin-top: 0;
+  flex-grow: 1; /* Автоматично розтягується на всю висоту панелі, що залишилася */
+  overflow-y: auto; /* Додає скрол, якщо місць забагато */
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-main) transparent;
 }
-
-.selected-summary h4 { margin-top: 0; color: var(--accent); }
+.selected-summary h4 { margin: 0 0 10px 0; color: var(--accent); }
 .selected-summary ul { margin: 0; padding-left: 20px; }
 
+
 @media (max-width: 768px) {
+  .board-header { display: none; }
+  .board-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    border: 1px dashed var(--text-muted);
+    margin-bottom: 15px;
+    padding: 20px;
+  }
+  .route { font-size: 1.8rem; text-align: center; }
+  .time, .train-num { display: inline-block; }
+
   .booking-content { grid-template-columns: 1fr; }
-  .right-panel { position: static; }
+  
+  .right-panel {
+    position: static; 
+    max-height: none;
+    display: block;
+  }
+  
+  .selected-summary {
+    max-height: 250px; 
+  }
+  
   .wagons-scroll-container { max-height: none; overflow-y: visible; }
   .sticky-legend { top: 70px; }
 }

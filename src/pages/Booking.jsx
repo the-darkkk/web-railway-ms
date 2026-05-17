@@ -16,7 +16,7 @@ export default function Booking() {
   const [loading, setLoading] = useState(false);
 
   const wagons = [1, 2, 3, 4, 5]; 
-  const TOTAL_SEATS = 28;
+  const TOTAL_SEATS = 54;
 
   useEffect(() => {
     BookingService.getAllBookedSeats(trainId).then(data => {
