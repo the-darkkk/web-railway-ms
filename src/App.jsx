@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Booking from './pages/Booking';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BookingStub = () => <div className="container"><h2>Бронювання місць</h2></div>;
 
@@ -13,10 +15,11 @@ function App() {
         </div>
       </header>
 
-      <Routes>
+<Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/booking/:trainId" element={<BookingStub />} />
+        <Route path="/booking/:trainId" element={<Booking />} />
       </Routes>
+      <ToastContainer position="bottom-right" theme="dark" />
     </BrowserRouter>
   );
 }
