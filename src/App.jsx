@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
+import Booking from './pages/Booking';
 
 const BookingStub = () => <div className="container"><h2>Бронювання місць</h2></div>;
 
