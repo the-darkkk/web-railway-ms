@@ -1,16 +1,35 @@
-# React + Vite
+# 🚆 Railway MS (Terminal Edition)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for simulating a railway ticket sales and booking system. This project combines the atmosphere of retro train station terminals, a neon cyberpunk aesthetic, and thoughtful modern UX/UI.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* **Interactive Departures Board:** Instant train search by destination or train number with automatic chronological sorting.
+* **Seamless Booking Experience:** Continuous vertical scrolling through wagons instead of traditional tabs. Features a realistic seat grid layout simulating a real train car with a center aisle.
+* **Smart State Management:** Allows users to select multiple seats across different wagons simultaneously. All selected tickets are dynamically grouped and displayed in a sticky side panel.
+* **Data Persistence:** Booked seats are saved between sessions using a custom mock-backend service built on top of `localStorage`.
+* **Custom UI:** Fully responsive design written in pure CSS without any third-party UI libraries. Extensively uses CSS Grid/Flexbox, backdrop filters, and neon glow effects (`text-shadow`).
 
-## React Compiler
+## ✨ Demo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Core:** React 18 + Vite
+* **Routing:** React Router DOM v6
+* **Notifications:** React Toastify
+* **Styling:** Custom CSS (Mobile-first, CSS Variables)
+
+## 🚀 Quick Start
+
+1. Clone the repository:
+git clone https://github.com/your-username/web-railway-ms.git
+
+2. Navigate to the project directory and install dependencies:
+cd web-railway-ms
+npm install
+
+3. Start the local development server:
+npm run dev
+
+---
