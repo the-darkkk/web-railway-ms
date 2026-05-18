@@ -11,6 +11,9 @@ A modern web application for simulating a railway ticket sales and booking syste
 * **Custom UI:** Fully responsive design written in pure CSS without any third-party UI libraries. Extensively uses CSS Grid/Flexbox, backdrop filters, and neon glow effects (`text-shadow`).
 
 ## ✨ Demo
+<img width="2559" height="1248" alt="image" src="https://github.com/user-attachments/assets/07f89750-f750-4740-80a8-07b5c2cffc16" />
+<img width="2554" height="1246" alt="image" src="https://github.com/user-attachments/assets/660fddf0-fedf-4b22-a9b6-464554e9f0e3" />
+
 
 
 ## 🛠 Tech Stack
